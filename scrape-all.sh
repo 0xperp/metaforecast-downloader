@@ -1,13 +1,20 @@
-#!/bin/sh
+#!/bin/bash
 
-node Crimea.js
-node Crimea2.js
-node Escalation.js
-node Kerch.js
-node Nuclear.js
-node Peace.js
-node Putin.js
-node Territory.js
-node Threads.js
-node Threads2.js
-node Wagner.js
+# Function to loop through files recursively
+function process_files {
+  local folder="sources"   # Folder to process
+
+  # Loop through files and folders in the current folder
+  for item in "$folder"/*; do
+    if [[ -f "$item" ]]; then     # Check if item is a file
+      if [[ "$item" == *.js ]]; then    # Check if it's a JavaScript file
+        node "$item"    # Run `node` command for the JavaScript file
+      fi
+    elif [[ -d "$item" ]]; then    # Check if item is a directory
+      process_files "$item"    # Recursively call the function for subfolders
+    fi
+  done
+}
+
+# Start processing files from the specified folder
+process_files "/sources"
