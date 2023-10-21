@@ -1,4 +1,4 @@
-import { fetchAll, writeJSONOutput } from './helpers.js';
+import { fetchAll, writeJSONOutput } from '../../helpers.js';
 
 const markets = [
   { name: "Rus gains new territory?", id: "metaculus-10745" },

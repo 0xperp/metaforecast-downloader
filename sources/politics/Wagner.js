@@ -1,4 +1,4 @@
-import { fetchAll, writeJSONOutput } from './helpers.js';
+import { fetchAll, writeJSONOutput } from '../../helpers.js';
 
 const markets = [
 //  { name: "Prigozhin quits or flees by Dec 9?", id: "goodjudgmentopen-2908" }, // Updated to take the inverse probability

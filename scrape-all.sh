@@ -2,7 +2,7 @@
 
 # Function to loop through files recursively
 function process_files {
-  local folder="sources"   # Folder to process
+  local folder="$1"   # Folder to process
 
   # Loop through files and folders in the current folder
   for item in "$folder"/*; do
@@ -13,8 +13,9 @@ function process_files {
     elif [[ -d "$item" ]]; then    # Check if item is a directory
       process_files "$item"    # Recursively call the function for subfolders
     fi
+  
   done
 }
 
 # Start processing files from the specified folder
-process_files "/sources"
+process_files "sources"
